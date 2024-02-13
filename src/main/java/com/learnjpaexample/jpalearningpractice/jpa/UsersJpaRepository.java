@@ -6,6 +6,8 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class UsersJpaRepository {
@@ -24,6 +26,10 @@ public class UsersJpaRepository {
     public void deleteById(long id){
         User user = findById(id);
         entityManager.remove(user);
+    }
+
+    public List<User> findAll(){
+        return entityManager.createQuery("select u from users u", User.class).getResultList();
     }
 
 }
