@@ -1,5 +1,6 @@
 package com.learnjpaexample.jpalearningpractice.jpa;
 
+import com.learnjpaexample.jpalearningpractice.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -17,7 +18,7 @@ public class UsersJpaRepository {
     }
 
     public User findById(long id){
-        return entityManager.find(User.clss, id);
+        return entityManager.find(User.class, id);
     }
 
     public void deleteById(long id){
